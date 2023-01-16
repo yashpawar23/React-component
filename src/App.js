@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import FunctionComponent from './Component/FunctionComponent';
+import ClassComponent from './Component/ClassComponent';
+import React, { useState } from 'react';
 
 function App() {
+  const [show,showPost] =useState(false)
+  
+const FuncComponent =()=>{
+  showPost(!show)
+}
+const [cshow ,cshowPost]=useState(false)
+const ClasComponent = ()=>{
+  cshowPost(!cshow)
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className='heading'>Styling Using Functional & Class Component</h1>
+      <button className="button1" onClick={FuncComponent}>To see styling in functional component</button>
+      <button className="button2" onClick={ClasComponent}>To see styling in class component</button>
+       
+      <div className="flex">
+       {show?  <FunctionComponent/> :"" }
+        {cshow? <ClassComponent/> :""}
+      </div>
+      
     </div>
   );
 }
